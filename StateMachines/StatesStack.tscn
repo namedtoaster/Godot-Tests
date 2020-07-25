@@ -1,0 +1,22 @@
+[gd_scene format=2]
+
+[node name="StatesStack" type="VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Label" parent="."]
+margin_right = 69.0
+margin_bottom = 14.0
+text = "State Stack"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="States" type="Label" parent="."]
+margin_top = 18.0
+margin_right = 69.0
+margin_bottom = 32.0
+text = "States:"

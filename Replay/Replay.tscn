@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://StateMachines/assets/box_tile.tres" type="TileSet" id=1]
+[ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Replay/Replay.gd" type="Script" id=3]
+[ext_resource path="res://Replay/Timer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://StateMachines/StatesStack.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Replay/assets/record button.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "recording"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("RecordingIcon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Replay" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Blocks" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 65535, 0, 0, 108, 0, 0, 131071, 0, 0, 65644, 0, 0, 196607, 0, 0, 131180, 0, 0, 262143, 0, 0, 196716, 0, 0, 327679, 0, 0, 262252, 0, 0, 393215, 0, 0, 327788, 0, 0, 458751, 0, 0, 393324, 0, 0, 524287, 0, 0, 458860, 0, 0, 589823, 0, 0, 524396, 0, 0, 655359, 0, 0, 589932, 0, 0, 720895, 0, 0, 655468, 0, 0, 786431, 0, 0, 721004, 0, 0, 851967, 0, 0, 786517, 1, 0, 786518, 0, 0, 786519, 0, 0, 786520, 0, 0, 786521, 0, 0, 786522, 0, 0, 786523, 0, 0, 786524, 0, 0, 786525, 0, 0, 786526, 536870913, 0, 786540, 0, 0, 917503, 0, 0, 851999, 0, 0, 852000, 0, 0, 852001, 0, 0, 852002, 0, 0, 852003, 0, 0, 852004, 0, 0, 852005, 0, 0, 852006, 0, 0, 852052, 1, 0, 852063, 536870913, 0, 852076, 0, 0, 983039, 0, 0, 917535, 0, 0, 917542, 0, 0, 917587, 1, 0, 917600, 536870913, 0, 917612, 0, 0, 1048575, 0, 0, 983071, 0, 0, 983078, 0, 0, 983122, 1, 0, 983137, 536870913, 0, 983148, 0, 0, 1114111, 0, 0, 1048607, 0, 0, 1048614, 0, 0, 1048633, 0, 0, 1048634, 0, 0, 1048635, 0, 0, 1048636, 0, 0, 1048637, 0, 0, 1048657, 1, 0, 1048674, 536870913, 0, 1048684, 0, 0, 1179647, 0, 0, 1114143, 0, 0, 1114150, 0, 0, 1114192, 1, 0, 1114211, 536870913, 0, 1114220, 0, 0, 1245183, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1179651, 0, 0, 1179652, 0, 0, 1179653, 0, 0, 1179654, 0, 0, 1179655, 0, 0, 1179656, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1179659, 0, 0, 1179660, 0, 0, 1179661, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1179664, 0, 0, 1179665, 0, 0, 1179666, 0, 0, 1179667, 0, 0, 1179668, 0, 0, 1179669, 0, 0, 1179670, 0, 0, 1179671, 0, 0, 1179672, 0, 0, 1179673, 0, 0, 1179674, 0, 0, 1179675, 0, 0, 1179676, 0, 0, 1179677, 0, 0, 1179678, 0, 0, 1179679, 0, 0, 1179686, 0, 0, 1179687, 0, 0, 1179688, 0, 0, 1179689, 0, 0, 1179690, 0, 0, 1179691, 0, 0, 1179692, 0, 0, 1179693, 0, 0, 1179694, 0, 0, 1179695, 0, 0, 1179696, 0, 0, 1179697, 0, 0, 1179698, 0, 0, 1179699, 0, 0, 1179700, 0, 0, 1179716, 0, 0, 1179717, 0, 0, 1179718, 0, 0, 1179719, 0, 0, 1179720, 0, 0, 1179721, 0, 0, 1179722, 0, 0, 1179723, 0, 0, 1179724, 0, 0, 1179725, 0, 0, 1179726, 0, 0, 1179727, 0, 0, 1179748, 0, 0, 1179749, 0, 0, 1179750, 0, 0, 1179751, 0, 0, 1179752, 0, 0, 1179753, 0, 0, 1179754, 0, 0, 1179755, 0, 0, 1179756, 0, 0, 1245236, 0, 0, 1245252, 0, 0, 1310772, 0, 0, 1310788, 0, 0, 1376308, 0, 0, 1376324, 0, 0, 1441844, 0, 0, 1441860, 0, 0, 1507380, 0, 0, 1507388, 0, 0, 1507389, 0, 0, 1507390, 0, 0, 1507391, 0, 0, 1507396, 0, 0, 1572916, 0, 0, 1572932, 0, 0, 1638452, 0, 0, 1638468, 0, 0, 1703988, 0, 0, 1704004, 0, 0, 1769524, 0, 0, 1769540, 0, 0, 1835060, 0, 0, 1835076, 0, 0, 1900596, 0, 0, 1900601, 0, 0, 1900602, 0, 0, 1900603, 0, 0, 1900604, 0, 0, 1900612, 0, 0, 1966132, 0, 0, 1966148, 0, 0, 2031668, 0, 0, 2031684, 0, 0, 2097204, 0, 0, 2097220, 0, 0, 2162740, 0, 0, 2162756, 0, 0, 2228276, 0, 0, 2228292, 0, 0, 2293812, 0, 0, 2293817, 0, 0, 2293818, 0, 0, 2293819, 0, 0, 2293820, 0, 0, 2293821, 0, 0, 2293822, 0, 0, 2293823, 0, 0, 2293828, 0, 0, 2359348, 0, 0, 2359364, 0, 0, 2424884, 0, 0, 2424900, 0, 0, 2490420, 0, 0, 2490436, 0, 0, 2555956, 0, 0, 2555972, 0, 0, 2621492, 0, 0, 2621508, 0, 0, 2687028, 0, 0, 2687029, 0, 0, 2687030, 0, 0, 2687031, 0, 0, 2687032, 0, 0, 2687033, 0, 0, 2687034, 0, 0, 2687035, 0, 0, 2687036, 0, 0, 2687037, 0, 0, 2687038, 0, 0, 2687039, 0, 0, 2687040, 0, 0, 2687041, 0, 0, 2687042, 0, 0, 2687043, 0, 0, 2687044, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 90.1898, 519.427 )
+scale = Vector2( 3, 3 )
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="DebugInfo" type="VBoxContainer" parent="GUI"]
+margin_right = 89.0
+margin_bottom = 86.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReadOrRecord" type="Label" parent="GUI/DebugInfo"]
+margin_right = 89.0
+margin_bottom = 14.0
+text = "Reading"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerDisplay" parent="GUI/DebugInfo" instance=ExtResource( 4 )]
+margin_top = 18.0
+margin_bottom = 50.0
+
+[node name="StatesStack" parent="GUI/DebugInfo" instance=ExtResource( 5 )]
+margin_top = 54.0
+margin_right = 89.0
+margin_bottom = 86.0
+
+[node name="FrameInfo" type="VBoxContainer" parent="GUI/DebugInfo"]
+margin_top = 90.0
+margin_right = 89.0
+margin_bottom = 122.0
+
+[node name="Header" type="Label" parent="GUI/DebugInfo/FrameInfo"]
+margin_right = 89.0
+margin_bottom = 14.0
+text = "Frame #:"
+
+[node name="Value" type="Label" parent="GUI/DebugInfo/FrameInfo"]
+margin_top = 18.0
+margin_right = 89.0
+margin_bottom = 32.0
+
+[node name="ReplayTools" type="VBoxContainer" parent="GUI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -224.0
+margin_bottom = 66.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RecordingIcon" type="TextureRect" parent="GUI/ReplayTools"]
+visible = false
+margin_top = 24.0
+margin_right = 224.0
+margin_bottom = 66.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Record" type="Button" parent="GUI/ReplayTools"]
+margin_top = 48.0
+margin_right = 224.0
+margin_bottom = 68.0
+text = "Click Here To Record Movements"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="GUI/ReplayTools"]
+visible = false
+margin_top = 48.0
+margin_right = 224.0
+margin_bottom = 68.0
+text = "Play"
+
+[node name="RecordingAnimation" type="AnimationPlayer" parent="GUI/ReplayTools"]
+anims/recording = SubResource( 1 )
+[connection signal="timeout" from="GUI/DebugInfo/TimerDisplay/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="GUI/ReplayTools/Record" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="GUI/ReplayTools/Play" to="." method="_on_Play_pressed"]
+
+[editable path="GUI/DebugInfo/TimerDisplay"]

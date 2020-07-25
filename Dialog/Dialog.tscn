@@ -1,0 +1,3 @@
+[gd_scene format=2]
+
+[node name="Dialog" type="Node2D"]
