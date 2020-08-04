@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Light/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -50,7 +50,10 @@ polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 cull_mode = 2
 polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
-[sub_resource type="TileSet" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="TileSet" id=6]
 0/name = "Dark_lvl0.png 0"
 0/texture = ExtResource( 7 )
 0/tex_offset = Vector2( 0, 0 )
@@ -62,9 +65,16 @@ polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 5 )
 0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 0/z_index = 0
 
 [node name="Light" type="Node2D"]
@@ -76,46 +86,48 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="."]
+[node name="Icons" type="Node" parent="."]
+
+[node name="icon" type="Sprite" parent="Icons"]
 light_mask = 0
 position = Vector2( 127.072, 59.2606 )
 texture = ExtResource( 2 )
 
-[node name="icon2" type="Sprite" parent="."]
+[node name="icon2" type="Sprite" parent="Icons"]
 position = Vector2( 151.316, 272.737 )
 texture = ExtResource( 2 )
 
-[node name="icon3" type="Sprite" parent="."]
+[node name="icon3" type="Sprite" parent="Icons"]
 position = Vector2( 733.747, 49.5997 )
 texture = ExtResource( 2 )
 
-[node name="icon4" type="Sprite" parent="."]
+[node name="icon4" type="Sprite" parent="Icons"]
 position = Vector2( 712.161, 363.801 )
 texture = ExtResource( 2 )
 
-[node name="icon5" type="Sprite" parent="."]
+[node name="icon5" type="Sprite" parent="Icons"]
 position = Vector2( 859.295, 181.426 )
 texture = ExtResource( 2 )
 
-[node name="icon6" type="Sprite" parent="."]
+[node name="icon6" type="Sprite" parent="Icons"]
 position = Vector2( 594.321, 149.693 )
 texture = ExtResource( 2 )
 
-[node name="icon7" type="Sprite" parent="."]
+[node name="icon7" type="Sprite" parent="Icons"]
 position = Vector2( 491.187, 387.694 )
 texture = ExtResource( 2 )
 
-[node name="icon8" type="Sprite" parent="."]
+[node name="icon8" type="Sprite" parent="Icons"]
 position = Vector2( 857.709, 478.134 )
 texture = ExtResource( 2 )
 
-[node name="icon9" type="Sprite" parent="."]
+[node name="icon9" type="Sprite" parent="Icons"]
 position = Vector2( 178.612, 547.948 )
 texture = ExtResource( 2 )
 
 [node name="SpotLightSim" type="Light2D" parent="."]
 light_mask = 0
-position = Vector2( 536.771, 339.848 )
+position = Vector2( 594.408, 386.602 )
 texture = ExtResource( 5 )
 color = Color( 1, 1, 1, 0.941176 )
 mode = 3
@@ -152,24 +164,6 @@ mode = 3
 range_item_cull_mask = 64
 shadow_item_cull_mask = 0
 
-[node name="Occlude" type="TileMap" parent="."]
-light_mask = 128
-tile_set = SubResource( 3 )
-cell_clip_uv = true
-collision_layer = 0
-collision_mask = 0
-occluder_light_mask = 128
-format = 1
-tile_data = PoolIntArray( 2, 1, 0, 3, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 131076, 1, 0, 131077, 1, 0, 262157, 1, 0, 262158, 1, 0, 262159, 1, 0, 262160, 1, 0, 262161, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 589824, 1, 0, 655360, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655371, 1, 0, 720896, 1, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0 )
-
-[node name="Draw" type="TileMap" parent="."]
-tile_set = SubResource( 5 )
-cell_clip_uv = true
-collision_mask = 0
-occluder_light_mask = 0
-format = 1
-tile_data = PoolIntArray( 2, 0, 0, 3, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 131076, 0, 0, 131077, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 589824, 0, 0, 655360, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655371, 0, 0, 720896, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0 )
-
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
 light_mask = 4
 position = Vector2( 336.32, 104.193 )
@@ -185,5 +179,25 @@ visible = false
 light_mask = 0
 mode = 2
 range_item_cull_mask = 64
+
+[node name="TileMaps" type="Node" parent="."]
+
+[node name="Occlude" type="TileMap" parent="TileMaps"]
+light_mask = 128
+tile_set = SubResource( 3 )
+cell_clip_uv = true
+collision_layer = 0
+collision_mask = 0
+occluder_light_mask = 128
+format = 1
+tile_data = PoolIntArray( 2, 1, 0, 3, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 131076, 1, 0, 131077, 1, 0, 262157, 1, 0, 262158, 1, 0, 262159, 1, 0, 262160, 1, 0, 262161, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 589824, 1, 0, 655360, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655371, 1, 0, 720896, 1, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0 )
+
+[node name="Draw" type="TileMap" parent="TileMaps"]
+tile_set = SubResource( 6 )
+cell_clip_uv = true
+collision_mask = 0
+occluder_light_mask = 0
+format = 1
+tile_data = PoolIntArray( 2, 0, 0, 3, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 131076, 0, 0, 131077, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 589824, 0, 0, 655360, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655371, 0, 0, 720896, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0 )
 
 [editable path="Enemy"]

@@ -99,9 +99,9 @@ __meta__ = {
 }
 
 [node name="Record" type="Button" parent="GUI/ReplayTools"]
-margin_top = 48.0
+margin_top = 46.0
 margin_right = 224.0
-margin_bottom = 68.0
+margin_bottom = 66.0
 text = "Click Here To Record Movements"
 __meta__ = {
 "_edit_use_anchors_": false

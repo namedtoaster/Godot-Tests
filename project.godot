@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Characters/Character.gd"
 }, {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://git_api.gdns"
+}, {
+"base": "Character",
+"class": "NPC",
+"language": "GDScript",
+"path": "res://Characters/NPC/NPC.gd"
+}, {
 "base": "Character",
 "class": "Player",
 "language": "GDScript",
@@ -21,14 +31,25 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Character": "",
+"GitAPI": "",
+"NPC": "",
 "Player": ""
 }
 
 [application]
 
 config/name="Tests"
-run/main_scene="res://Replay/Replay.tscn"
+run/main_scene="res://Dialog/DialogTestScene.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
+[gdnative]
+
+singletons=[ "res://git_api.gdnlib" ]
 
 [input]
 
@@ -57,6 +78,11 @@ side_attack={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
  ]
 }
+click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -73,7 +99,7 @@ side_attack={
 
 [physics]
 
-2d/default_gravity=1500
+2d/default_gravity=1350
 
 [rendering]
 

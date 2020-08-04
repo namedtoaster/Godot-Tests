@@ -23,7 +23,6 @@ var current_state = null
 var _active = false setget set_active
 	
 func _ready():
-	print("enter state machine")
 	for child in get_children():
 		child.connect("finished", self, "_change_state")
 	initialize(START_STATE)

@@ -6,6 +6,10 @@ var speed = 0.0
 export(float) var MAX_WALK_SPEED = 300
 export(float) var MAX_RUN_SPEED = 200
 
+func _ready():
+	MAX_RUN_SPEED *= get_owner().MULTIPLIER
+	MAX_WALK_SPEED *= get_owner().MULTIPLIER
+
 func handle_input(event):
 #	if event.is_action_pressed("simulate_damage"):
 #		emit_signal("finished", "stagger")
@@ -33,7 +37,7 @@ func update(delta):
 	update_look_direction(input_direction)
 	
 	# Always apply gravity, whether you are on the ground or not - will be applied in the on_ground state(s) as well
-	owner.move_and_slide(owner._velocity, Vector2.UP, true)
+	owner.move_and_slide(owner._velocity, Vector2.UP, true, 4, deg2rad(60.0))
 	
 	# Zero out the y component of velocity in order to be able to jump (and to prevent jumping when hitting the ceiling)
 	# Otherwise, the y velocity will continue to increase and jumping will be ineffective (and if you're jumping you'll stick to the bottom of floors temporarily)

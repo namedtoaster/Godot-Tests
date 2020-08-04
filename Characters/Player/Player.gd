@@ -2,6 +2,7 @@ class_name Player
 extends Character
 
 signal direction_changed(new_direction)
+export(float) var MULTIPLIER = 1.0
 
 var look_direction = Vector2(1, 0) setget set_look_direction
 
