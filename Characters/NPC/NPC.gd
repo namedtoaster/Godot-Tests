@@ -1,6 +1,11 @@
 class_name NPC
 extends Character
 
+var dialog_text = ["Hello, I'm an NPC",
+"Nice to meet you.",
+"This is your quest, don't mess it up.",
+"Don't fail or my family won't eat"]
+
 signal direction_changed(new_direction)
 export(float) var MULTIPLIER = 1.0
 
@@ -25,3 +30,9 @@ func set_look_direction(value):
 	
 	# This signal doesn't actually do anything
 	#emit_signal("direction_changed", value)
+
+
+func _on_DialogArea_body_entered(body):
+	if (body.name == "Player"):
+		var dialog = get_tree().get_current_scene().get_node("GUI").get_node("Dialog")
+		dialog.change_dialog_text(dialog_text)

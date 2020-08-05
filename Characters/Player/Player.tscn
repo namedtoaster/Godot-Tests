@@ -168,5 +168,5 @@ process_mode = 0
 limit_left = 0
 limit_top = 0
 smoothing_enabled = true
-[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Jump" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Attack" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Jump" method="_on_AnimationPlayer_animation_finished"]

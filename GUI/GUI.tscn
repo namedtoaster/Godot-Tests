@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
 [ext_resource path="res://Dialog/Dialog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GUI/assets/space.png" type="Texture" id=3]
+[ext_resource path="res://GUI/assets/left.png" type="Texture" id=4]
+[ext_resource path="res://GUI/assets/right.png" type="Texture" id=5]
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -47,8 +50,8 @@ align = 2
 [node name="BottomMenu" type="MarginContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -53.0
-margin_right = 81.0
+margin_top = -145.0
+margin_right = 185.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -57,21 +60,67 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BottomMenu"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="BottomMenu"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 71.0
-margin_bottom = 43.0
+margin_right = 175.0
+margin_bottom = 135.0
+rect_min_size = Vector2( 165, 125 )
+
+[node name="Keys" type="VBoxContainer" parent="BottomMenu/VBoxContainer2"]
+margin_right = 165.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 165, 88 )
+alignment = 1
+
+[node name="LeftRight" type="HBoxContainer" parent="BottomMenu/VBoxContainer2/Keys"]
+margin_right = 165.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 165, 58 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Left" type="TextureRect" parent="BottomMenu/VBoxContainer2/Keys/LeftRight"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 80.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="Right" type="TextureRect" parent="BottomMenu/VBoxContainer2/Keys/LeftRight"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 84.0
+margin_right = 165.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="Spacebar" type="TextureRect" parent="BottomMenu/VBoxContainer2/Keys"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 62.0
+margin_right = 165.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 165, 26 )
+texture = ExtResource( 3 )
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomMenu/VBoxContainer2"]
+margin_top = 92.0
+margin_right = 165.0
+margin_bottom = 125.0
 custom_constants/separation = 5
 
-[node name="Inventory" type="Label" parent="BottomMenu/VBoxContainer"]
-margin_right = 61.0
+[node name="Inventory" type="Label" parent="BottomMenu/VBoxContainer2/VBoxContainer"]
+margin_right = 165.0
 margin_bottom = 14.0
 text = "Inventory"
 
-[node name="Log" type="Label" parent="BottomMenu/VBoxContainer"]
+[node name="Log" type="Label" parent="BottomMenu/VBoxContainer2/VBoxContainer"]
 margin_top = 19.0
-margin_right = 61.0
+margin_right = 165.0
 margin_bottom = 33.0
 text = "Log"
 

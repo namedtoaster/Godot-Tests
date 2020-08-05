@@ -34,4 +34,3 @@ func _input(event):
 		_change_state("attack")
 		return
 	current_state.handle_input(event)
-	

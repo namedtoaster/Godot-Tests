@@ -1,9 +1,40 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Dialog/Dialog.gd" type="Script" id=1]
-[ext_resource path="res://Dialog/assets/dialog_box.png" type="Texture" id=2]
+[ext_resource path="res://Dialog/assets/dialog_red.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Dialog" type="HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -14,6 +45,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+DIALOG_COLOR = 1
 
 [node name="Name" type="Label" parent="."]
 margin_right = 200.0
@@ -69,6 +101,14 @@ wait_time = 0.1
 [node name="StartDelay" type="Timer" parent="Box/Timers"]
 wait_time = 2.0
 one_shot = true
-autostart = true
+
+[node name="EndDelay" type="Timer" parent="Box/Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade_in = SubResource( 1 )
+anims/fade_out = SubResource( 2 )
 [connection signal="timeout" from="Box/Timers/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Box/Timers/StartDelay" to="." method="_on_StartDelay_timeout"]
+[connection signal="timeout" from="Box/Timers/EndDelay" to="." method="_on_EndDelay_timeout"]

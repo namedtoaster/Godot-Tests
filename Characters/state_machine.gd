@@ -35,6 +35,9 @@ func initialize(start_state):
 
 func set_active(value):
 	_active = value
+	
+	# Reset the velocity to 0 so the character doesn't try to move without input
+	owner._velocity = Vector2()
 	set_physics_process(value)
 	set_process_input(value)
 	if not _active:
